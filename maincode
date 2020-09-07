@@ -1,0 +1,44 @@
+#include <iostream>
+#include<algorithm>
+using namespace std;
+#define ll long long
+
+int main() {
+    //code
+  
+    int test;
+    cin>>test;
+    while(test--){
+        int n;
+        cin>>n;
+        ll A[n];
+       ll f[1000001]={0};
+        for(int i=0;i<n;i++){
+            cin>>A[i];
+            f[A[i]]++;
+        }
+        ll count=0;
+        sort(A,A+n);
+        
+        for(ll i=0;i<n-2;i++)
+            {
+                for(ll j=i+1;j<n-1;j++)
+                {
+                    if(f[A[i]+A[j]]!=0)
+                    count++;
+                }
+            }
+          
+            if(count!=0)
+            {
+                cout<<count<<endl;
+            }
+            else
+            cout<<-1<<endl;
+        }
+     
+        
+    
+    
+    return 0;
+}
